@@ -7,7 +7,7 @@ from pyomo.dataportal import DataPortal
 from pyomo.opt import SolverFactory
 
 
-def solve_suduko(known_cells):
+def solve_sudoku(known_cells):
     known_cells.colnames = ["i", "j", "k"]
 
     # The grid indices and possible values.

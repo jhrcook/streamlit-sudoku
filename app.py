@@ -5,14 +5,14 @@ from itertools import product
 import streamlit as st
 import pandas as pd
 import numpy as np
-from suduko_solver import solve_suduko
+from sudoku_solver import solve_sudoku
 from ui_auxiliary import empty_board_str, board_matrix_to_dataframe
 
 random.seed(0)
 
-st.title("Suduko Solver")
+st.title("Sudoku Solver")
 
-st.subheader("Use linear programming to solve a Suduko puzzle.")
+st.subheader("Use linear programming to solve a Sudoku puzzle.")
 
 input_data = st.text_area(
     label="Enter the starting state of the board.", value=empty_board_str, height=400
