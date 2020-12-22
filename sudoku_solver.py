@@ -6,6 +6,10 @@ from pyomo import environ as pyo
 from pyomo.dataportal import DataPortal
 from pyomo.opt import SolverFactory
 
+import pyutilib.subprocess.GlobalData
+
+pyutilib.subprocess.GlobalData.DEFINE_SIGNAL_HANDLERS_DEFAULT = False
+
 
 def solve_sudoku(known_cells):
     known_cells.colnames = ["i", "j", "k"]

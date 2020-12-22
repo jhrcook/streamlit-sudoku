@@ -30,16 +30,17 @@ for line in input_data.split("\n"):
 if len(rows) == len(cols) == len(values):
 
     known_cells = pd.DataFrame({"i": rows, "j": cols, "k": values})
+    board = known_cells.copy()
 
-    board = pd.DataFrame(product(range(1, 10), range(1, 10)), columns=["i", "j"])
-    board = pd.merge(board, known_cells, how="left")
-    board.k = ["" if np.isnan(x) else str(int(x)) for x in board.k]
+    known_cells = known_cells[known_cells["k"] != 0]
+
+    board.k = ["" if x == 0 else str(x) for x in board.k]
     board = board.pivot(index="i", columns="j", values="k")
 
     if st.button("Solve!"):
         st.markdown("**Solution**")
-        # st.markdown(board_as_markdown_table(board))
-        st.write(board_matrix_to_dataframe(np.random.randint(1, 10, (9, 9))))
+        res = solve_sudoku(known_cells)
+        st.write(board_matrix_to_dataframe(res))
     else:
         st.markdown("**Board layout**")
         st.write(board)
