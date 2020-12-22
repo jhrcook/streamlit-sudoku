@@ -12,7 +12,7 @@ pyutilib.subprocess.GlobalData.DEFINE_SIGNAL_HANDLERS_DEFAULT = False
 
 
 def solve_sudoku(known_cells):
-    known_cells.colnames = ["i", "j", "k"]
+    known_cells.columns = ["i", "j", "k"]
 
     # The grid indices and possible values.
     N = np.arange(1, 9 + 1)
