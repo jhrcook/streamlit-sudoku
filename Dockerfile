@@ -10,4 +10,3 @@ RUN conda install python=3.9
 RUN conda install -c conda-forge --file requirements.txt
 
 CMD streamlit run --server.port $PORT app.py
-# CMD streamlit run app.py
